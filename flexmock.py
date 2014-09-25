@@ -300,7 +300,7 @@ class Expectation(object):
     if original:
       try:
         self.argspec = ArgSpec(inspect.getargspec(original))
-      except TypeError:
+      except (TypeError, ValueError):
         # built-in function: fall back to stupid processing and hope the
         # builtins don't change signature
         pass
